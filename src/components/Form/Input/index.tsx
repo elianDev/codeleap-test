@@ -1,21 +1,25 @@
-import { InputContainer, LabelContainer, TextareaContainer } from "./styles";
+import { InputHTMLAttributes } from "react";
+import { InputContainer, LabelContainer } from "./styles";
+import { useFormContext } from "react-hook-form";
 
-interface InputProps {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
   label: string;
-  type: "input" | "textarea";
   placeholder: string;
 }
 
-const Input = ({ id, label, type, placeholder, ...props }: InputProps) => {
+const Input = ({ id, label, placeholder, ...props }: InputProps) => {
+  const { register } = useFormContext();
+
   return (
     <div>
       <LabelContainer htmlFor={id}>{label}</LabelContainer>
-      {type === "input" ? (
-        <InputContainer id={id} placeholder={placeholder} {...props} />
-      ) : (
-        <TextareaContainer id={id} placeholder={placeholder} {...props} />
-      )}
+      <InputContainer
+        id={id}
+        placeholder={placeholder}
+        {...props}
+        {...register(id, { required: true })}
+      />
     </div>
   );
 };

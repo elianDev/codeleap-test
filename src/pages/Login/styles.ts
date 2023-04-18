@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LoginContainer = styled.section`
+export const LoginContainer = styled.form`
   display: flex;
   flex-direction: column;
   max-width: 500px;
