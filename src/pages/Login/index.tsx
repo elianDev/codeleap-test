@@ -7,11 +7,12 @@ const LoginPage = () => {
     <LoginContainer>
       <h1>Welcome to CodeLeap network!</h1>
       <Input
+        type="input"
         label="Please enter your username"
         id="username"
         placeholder="John doe"
       />
-      <Button text="ENTER" color="blue" />
+      <Button border={false} text="ENTER" color="blue" />
     </LoginContainer>
   );
 };

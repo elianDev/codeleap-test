@@ -1,7 +1,7 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { Close, Content, Overlay } from "./styles";
 import Button from "../../../../components/Form/Button";
-import FormEdit from "../FormEdit";
+import Form from "../Form";
 
 interface ModalProps {
   type: "delete" | "edit";
@@ -31,9 +31,7 @@ const Modal = ({ type }: ModalProps) => {
         </Content>
       ) : (
         <Content>
-          <Dialog.Title>Edit item</Dialog.Title>
-          <FormEdit />
-          <div className="buttons">
+          <Form modal={true}>
             <Close>
               <Button
                 border={true}
@@ -42,8 +40,7 @@ const Modal = ({ type }: ModalProps) => {
                 textColor="black"
               />
             </Close>
-            <Button border={false} text="Save" color="green" />
-          </div>
+          </Form>
         </Content>
       )}
     </Dialog.Portal>

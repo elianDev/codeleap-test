@@ -1,4 +1,4 @@
-import FormCreate from "./components/FormCreate";
+import Form from "./components/Form";
 import PostCard from "./components/PostCard";
 import {
   HeaderContainer,
@@ -14,7 +14,7 @@ const MainPage = () => {
       </HeaderContainer>
 
       <MainContentContainer>
-        <FormCreate />
+        <Form />
 
         <PostCard />
       </MainContentContainer>
