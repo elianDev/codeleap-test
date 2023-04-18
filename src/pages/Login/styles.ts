@@ -4,7 +4,7 @@ export const LoginContainer = styled.section`
   display: flex;
   flex-direction: column;
   max-width: 500px;
-  max-height: 205px;
+  /* max-height: 205px; */
   margin: 30vh auto;
   padding: 1.5rem;
   background: ${({ theme }) => theme["base-white"]};
@@ -17,5 +17,10 @@ export const LoginContainer = styled.section`
 
   > div {
     margin-bottom: 1rem;
+  }
+
+  @media (max-width: 520px) {
+    margin-right: 1.125rem;
+    margin-left: 1.125rem;
   }
 `;

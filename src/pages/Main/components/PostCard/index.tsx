@@ -8,18 +8,15 @@ import deleteImg from "../../../../assets/delete.svg";
 import editImg from "../../../../assets/edit.svg";
 import * as Dialog from "@radix-ui/react-dialog";
 import Modal from "../Modal";
-import { useState } from "react";
 
 const PostCard = () => {
-  const [open, setOpen] = useState(false);
-
   return (
     <PostCardContainer>
       <header>
         <h2>My First Post at CodeLeap Network!</h2>
 
         <div>
-          <Dialog.Root open={open} onOpenChange={setOpen}>
+          <Dialog.Root>
             <Dialog.Trigger asChild>
               <button>
                 <img src={deleteImg} alt="Delete post" />

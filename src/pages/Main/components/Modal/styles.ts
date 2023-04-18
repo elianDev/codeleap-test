@@ -23,11 +23,24 @@ export const Content = styled(Dialog.Content)`
   border-radius: 16px;
   border: ${({ theme }) => theme["base-border"]};
 
+  @media (max-width: 700px) {
+    max-width: 400px;
+  }
+
+  @media (max-width: 430px) {
+    max-width: 300px;
+  }
+
   .buttons {
     margin-top: 2.5rem;
     display: flex;
     align-self: flex-end;
     gap: 1rem;
+
+    @media (max-width: 430px) {
+      flex-direction: column;
+      align-self: stretch;
+    }
   }
 `;
 

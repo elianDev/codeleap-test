@@ -14,9 +14,19 @@ export const PostCardContainer = styled.article`
     align-items: center;
     justify-content: space-between;
 
+    @media (max-width: 520px) {
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
     h2 {
       font-size: 1.375rem;
       color: ${({ theme }) => theme["base-white"]};
+
+      @media (max-width: 520px) {
+        font-size: 1.125rem;
+      }
     }
 
     div {

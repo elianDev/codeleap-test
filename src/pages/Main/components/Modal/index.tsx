@@ -38,6 +38,7 @@ const Modal = ({ type }: ModalProps) => {
                 text="Cancel"
                 color="white"
                 textColor="black"
+                type="button"
               />
             </Close>
           </Form>

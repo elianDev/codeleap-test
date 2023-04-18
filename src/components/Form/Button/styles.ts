@@ -11,6 +11,7 @@ interface ButtonContainerProps {
 export const ButtonContainer = styled.button<ButtonContainerProps>`
   display: flex;
   align-self: flex-end;
+  justify-content: center;
   height: 32px;
   text-align: center;
   color: ${({ theme }) => theme["base-white"]};
@@ -28,6 +29,10 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   &:not(:disabled):hover {
     background: ${({ theme }) => theme["base-background"]};
     transition: background 0.2s;
+  }
+
+  @media (max-width: 520px) {
+    width: 100%;
   }
 
   ${({ theme, textColor }) => css`
