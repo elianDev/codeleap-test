@@ -6,6 +6,8 @@ import {
 } from "./styles";
 import deleteImg from "../../../../assets/delete.svg";
 import editImg from "../../../../assets/edit.svg";
+import * as Dialog from "@radix-ui/react-dialog";
+import Modal from "../Modal";
 
 const PostCard = () => {
   return (
@@ -14,12 +16,25 @@ const PostCard = () => {
         <h2>My First Post at CodeLeap Network!</h2>
 
         <div>
-          <button>
-            <img src={deleteImg} alt="Delete post" />
-          </button>
-          <button>
-            <img src={editImg} alt="Edit post" />
-          </button>
+          <Dialog.Root>
+            <Dialog.Trigger asChild>
+              <button>
+                <img src={deleteImg} alt="Delete post" />
+              </button>
+            </Dialog.Trigger>
+
+            <Modal type="delete" />
+          </Dialog.Root>
+
+          <Dialog.Root>
+            <Dialog.Trigger asChild>
+              <button>
+                <img src={editImg} alt="Edit post" />
+              </button>
+            </Dialog.Trigger>
+
+            <Modal type="edit" />
+          </Dialog.Root>
         </div>
       </header>
 

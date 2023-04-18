@@ -5,12 +5,14 @@ export type ButtonVariant = "blue" | "red" | "green" | "white";
 interface ButtonContainerProps {
   color: ButtonVariant;
   border: boolean;
+  textColor: "white" | "black";
 }
 
 export const ButtonContainer = styled.button<ButtonContainerProps>`
   display: flex;
   align-self: flex-end;
   height: 32px;
+  text-align: center;
   color: ${({ theme }) => theme["base-white"]};
   border-radius: 8px;
   padding: 0.42rem 1.875rem;
@@ -27,6 +29,10 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
     background: ${({ theme }) => theme["base-background"]};
     transition: background 0.2s;
   }
+
+  ${({ theme, textColor }) => css`
+    color: ${theme[`base-${textColor}`]};
+  `}
 
   ${({ theme, border }) =>
     border &&

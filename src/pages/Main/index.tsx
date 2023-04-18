@@ -1,4 +1,4 @@
-import FormCreate from "./components/Form";
+import FormCreate from "./components/FormCreate";
 import PostCard from "./components/PostCard";
 import {
   HeaderContainer,
