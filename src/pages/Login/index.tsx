@@ -5,6 +5,8 @@ import { LoginContainer } from "./styles";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../actions/user";
 
 const loginInputSchema = z.object({
   username: z.string(),
@@ -18,6 +20,7 @@ const LoginPage = () => {
   const loginForm = useForm<LoginFormInput>({
     resolver: zodResolver(loginInputSchema),
   });
+  const dispatch = useDispatch();
 
   const {
     handleSubmit,
@@ -26,8 +29,10 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   function handleLogin(data: LoginFormInput) {
-    if (username === data.username) navigate("/main");
-    else console.log("erro");
+    if (username === data.username) {
+      dispatch(loginUser());
+      navigate("/main");
+    } else console.log("erro");
   }
 
   return (

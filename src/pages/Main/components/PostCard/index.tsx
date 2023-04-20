@@ -9,38 +9,46 @@ import editImg from "../../../../assets/edit.svg";
 import * as Dialog from "@radix-ui/react-dialog";
 import Modal from "../Modal";
 
-const PostCard = () => {
+let username = import.meta.env.VITE_USERNAME;
+
+interface PostCardProps {
+  user: string;
+}
+
+const PostCard = ({ user }: PostCardProps) => {
   return (
     <PostCardContainer>
       <header>
         <h2>My First Post at CodeLeap Network!</h2>
 
-        <div>
-          <Dialog.Root>
-            <Dialog.Trigger asChild>
-              <button>
-                <img src={deleteImg} alt="Delete post" />
-              </button>
-            </Dialog.Trigger>
+        {user === username && (
+          <div>
+            <Dialog.Root>
+              <Dialog.Trigger asChild>
+                <button>
+                  <img src={deleteImg} alt="Delete post" />
+                </button>
+              </Dialog.Trigger>
 
-            <Modal type="delete" />
-          </Dialog.Root>
+              <Modal type="delete" />
+            </Dialog.Root>
 
-          <Dialog.Root>
-            <Dialog.Trigger asChild>
-              <button>
-                <img src={editImg} alt="Edit post" />
-              </button>
-            </Dialog.Trigger>
+            <Dialog.Root>
+              <Dialog.Trigger asChild>
+                <button>
+                  <img src={editImg} alt="Edit post" />
+                </button>
+              </Dialog.Trigger>
 
-            <Modal type="edit" />
-          </Dialog.Root>
-        </div>
+              <Modal type="edit" />
+            </Dialog.Root>
+          </div>
+        )}
       </header>
 
       <PostCardContentContainer>
         <PostCardDetailsContainer>
-          <strong>@Victor</strong>
+          <strong>@{user}</strong>
           <span>25 minutes ago</span>
         </PostCardDetailsContainer>
 

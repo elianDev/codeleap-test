@@ -6,6 +6,8 @@ export const MainPageContainer = styled.main`
 `;
 
 export const HeaderContainer = styled.header`
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   height: 5rem;
   padding: 1.68rem 2.37rem;
